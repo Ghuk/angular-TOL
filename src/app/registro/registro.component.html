@@ -1,0 +1,84 @@
+
+<div class="container d-none d-lg-block">
+	
+	<div class="mt-3 text-center" style="background-color: rgba(255, 255, 255, 0.4);  height: 6em;  border-radius: 1em;">
+		<div><h3>Ingrese el siguiente codigo en su dispositivo movíl</h3></div>
+		<div class="mt-3"><h4><b style="color:white; border-radius: 0.3em; background-color: black; padding:0.3em;">{{codigoSala}}</b></h4></div>
+	</div>
+	
+	<hr>
+	<div>
+		<h3 class="text-center">Dispositivos vinculados</h3>
+		<div style="display:flex; flex-wrap:wrap; justify-content:space-around; ">
+			<div style="background-color: #2196F3; width: 14em; text-align:center;padding:1em; border-radius: 1em; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color:white; margin:1em;">
+				<img width="170em"src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-mobile-phone-icon.png" alt="">
+				<div>
+					<img width="20em"src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678134-sign-check-512.png" alt=""> Acelerometro
+				</div>
+				<div>
+					<img width="20em"src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678134-sign-check-512.png" alt=""> Giroscopio
+				</div>
+				<div>
+					<img width="20em" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678134-sign-check-512.png" alt=""> Magnetometro
+				</div>
+				
+				<hr>
+				<div><b>Dispositivo 1</b></div>
+			</div>		
+		</div>
+	</div>
+</div>
+
+<div class="container text-center d-lg-none mt-4">
+	<div class="mt-4 col-md-4 col-sm-2">	
+		<h4>Ingrese su codigo</h4>
+		<div class="input-group mb-3 ">
+			<input type="number" min="000000" max="999999" class="form-control" placeholder="Ingrese su codigo" #codigoIngresado>
+			<div class="input-group-append">
+				<button class="btn btn-primary text-white" (click)="addNewDevice(codigoIngresado)">
+							<b>UNIRSE</b>
+				</button>
+			</div>
+        </div>
+		<button class="btn btn-primary text-white" (click)="anonymousLogin()">
+					<b>REGISTRARSE</b>
+		</button>
+	</div>
+	<hr>
+	<div class="mt-4">
+	    <h4>Sensores disponibles</h4>
+		<table class="table table-striped">
+			<thead>
+				<tr class="bg-dark text-white">
+				<th scope="col"><i class="fas fa-cube"></i></th>
+				<th scope="col">Sensor</th>
+				<th scope="col"><i class="fas fa-power-off"></i></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="bg-white"*ngFor="let sensor of sensores">
+				<th><i class="{{sensor.sensorIcon}}"></i></th>
+				<td>{{sensor.sensorName}}</td>
+				<td><i  [ngClass]="sensor.sensorState ? 'fas fa-check-circle text-success' : 'far fa-circle text-danger'"></i></td>
+				</tr>
+	
+				<!--<tr>
+				<th><i class="fas fa-camera"></i></th>
+				<td>Camara</td>
+				<td><i class="fas fa-check-circle text-success"></i></td>
+				</tr>
+				<tr>
+				<th><i class="fas fa-thermometer-half"></i></th>
+				<td>Temperatura</td>
+				<td><i class="fas fa-check-circle text-success"></i></td>
+				</tr>
+				<tr>
+				<th><i class="fas fa-microphone"></i></th>
+				<td>Microfono</td>
+				<td><i class="fas fa-check-circle text-success"></i></td>
+				</tr>-->
+			</tbody>
+		</table>
+	</div>
+</div>
+
